@@ -40,7 +40,12 @@ while ($row = $result->fetch_array())
     $result2 = $stmt->get_result();
     $stmt->close();
     while ($row2 = $result2->fetch_array()) {
-        $MainContent .= $row2["SpecName"].": ".$row2["SpecVal"]."<br />";
+        $MainContent .= $row2["SpecName"].": ".$row2["SpecVal"]."<br /><br />";
+    }
+
+    if($row["Offered"] == 1)
+    {
+    $MainContent .= "<button type='button' disabled class='btn btn-primary' style='background-color:#f59acc; border-color:#f59acc; width: 20%; color:black;'>On Sale</button></br></br>";
     }
     //End of a row
     $MainContent .= "</div>";
@@ -50,18 +55,28 @@ while ($row = $result->fetch_array())
     $MainContent .= "<div class='col-sm-3' style='vertical-align:top; padding:5px'>"; 
     $MainContent .= "<p><img src=$img style='width: 80%'/></p>";
 
+    if($row["Offered"] == 0)
+    {
     //Right column - display the product's price
     $formattedPrice = number_format($row["Price"], 2);
     $MainContent .= "Price:<span style='font-weight: bold; color: black;'>
                     S$ $formattedPrice</span><br><br>";
-
+    }
+    else {
+    $formattedPrice = number_format($row["OfferedPrice"], 2);
+    $oldPrice = number_format($row["Price"], 2);
+    $MainContent .= "Price:<span style='font-weight: bold; color: black;'>
+                    <del>S$ $oldPrice</del></span>";
+    $MainContent .= "<span style='font-weight: bold; color: red;'>
+                    S$ $formattedPrice</span><br><br>";
+    }
 // To Do 2:  Create a Form for adding the product to shopping cart. Starting ....
     if($row["Quantity"] > 0) {
     $MainContent .= "<form action='cartFunctions.php' method='post'>";
     $MainContent .= "<input type='hidden' name='action' value='add' />";
     $MainContent .= "<input type='hidden' name='product_id' value='$pid' />";
     $MainContent .= "Quantity: <input type='number' name='quantity' value='1'
-                      min='1' max='10' style='width:40px' required /><br><br>";
+                      min='1' max='500' style='width:40px' required /><br><br>";
     $MainContent .= "<button type='submit'>Add to cart</button>";
     $MainContent .= "</form>";
     }
