@@ -54,17 +54,9 @@ while ($row = $result->fetch_array())
     $formattedPrice = number_format($row["Price"], 2);
     $MainContent .= "Price:<span style='font-weight: bold; color: red;'>
                     S$ $formattedPrice</span>";
-}
-// To Do 1:  Ending ....
 
 // To Do 2:  Create a Form for adding the product to shopping cart. Starting ....
-    $qry = "SELECT Quantity FROM Product WHERE ProductID=?";
-    $stmt = $conn->prepare($qry);
-    $stmt->bind_param("i", $_SESSION["Shopper"], $pid); //"i" - integer
-    $stmt->execute();
-    $result3 = $stmt->get_result();
-    $stmt->close();
-    if ($result3 > 0) {
+    if($row[Quantity] > 0) {
     $MainContent .= "<form action='cartFunctions.php' method='post'>";
     $MainContent .= "<input type='hidden' name='action' value='add' />";
     $MainContent .= "<input type='hidden' name='product_id' value='$pid' />";
@@ -74,15 +66,18 @@ while ($row = $result->fetch_array())
     $MainContent .= "</form>";
     }
     else {
-    $MainContent .= "Quantity: <input type='number' name='quantity' value='0'
+
+    $MainContent .= "<br>Quantity: <input type='number' name='quantity' value='0'
                        style='width:40px' disabled />";
-    $MainContent .= "<button type='submit' disabled>Add to cart</button>";
-    $MainContent .= "Price:<span style='font-weight: bold; color: red;'>Product is out of stock!</span>";
+
+    $MainContent .= "<br><br><button type='submit' disabled>Add to cart</button>";
+    
+    $MainContent .= "<br>Price:<span style='font-weight: bold; color: red;'>Product is out of stock!</span>";
     }
 
     $MainContent .= "</div>"; //End of right column 
     $MainContent .= "</div>"; //End of row
-
+}
 // To Do 2:  Ending ....
 
 $conn->close(); // Close database connnection
