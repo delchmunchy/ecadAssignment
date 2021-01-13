@@ -43,16 +43,19 @@ if(isset($_SESSION["ShopperName"])) {
 
 <!-- To Do 4 (Practical 1) - 
      Define a collapsible navbar -->
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #f59acc">
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #f59acc">
     <!--Collapsible part of navbar-->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <!--Left-justified menu items-->
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="category.php">Product Categories</a>
+            <a class="nav-link " href="category.php">Product Categories</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="search.php">Product Search</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="shoppingCart.php">Feedback</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="shoppingCart.php">Shopping Cart</a>
