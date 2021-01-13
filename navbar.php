@@ -49,13 +49,16 @@ if(isset($_SESSION["ShopperName"])) {
     <!--Left-justified menu items-->
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
+            <a class="nav-link " href="index.php">Index</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link " href="category.php">Product Categories</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="search.php">Product Search</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="shoppingCart.php">Feedback</a>
+            <a class="nav-link" href="feedback.php">Feedback</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="shoppingCart.php">Shopping Cart</a>

@@ -2,10 +2,13 @@
 // Detect the current session
 session_start();
 
+
 // Create a container, 60% width of viewport
+
 $MainContent = "<div style='width:60%; margin:auto;'>";
 // Display Page Header - 
-// Category's name is read from query string passed from previous page.
+
+
 $MainContent .= "<div class='row' style='padding:5px'>";
 $MainContent .= "<div class='col-12'>";
 $MainContent .= "</div>";
@@ -26,6 +29,9 @@ $stmt->close();
 
 $row = $result->fetch_array();
 
+$MainContent .= "<span style='font-weight: bold; color: black; font-size: 25px;'>Products on Offer</span></br>";
+$MainContent .= "<span style='color: black; font-size: 15px;'>These are the products that are currently on offer at discounted prices.</span>";
+
 //Display each product in a row
 while ($row = $result->fetch_array())
 {
@@ -44,7 +50,7 @@ while ($row = $result->fetch_array())
     //Right column - display the product's image
     $img = "./Images/products/$row[ProductImage]";
     $MainContent .= "<div class='col-4'>"; //33% of row width
-    $MainContent .= "<img src='$img' />";
+    $MainContent .= "<img src='$img' style='width: 80%'>";
     $MainContent .= "</div>";
 
     //End of a row
@@ -54,14 +60,6 @@ while ($row = $result->fetch_array())
 
 $conn->close(); // Close database connnection
 $MainContent .= "</div>"; // End of container
-
-
-
-
-
-
-
-
 
 
 include("MasterTemplate.php"); 
