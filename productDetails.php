@@ -1,4 +1,4 @@
-﻿<?php 
+﻿<?php  
 session_start(); // Detect the current session
 // Create a container, 90% width of viewport
 $MainContent = "<div style='width:90%; margin:auto;'>";
@@ -56,7 +56,7 @@ while ($row = $result->fetch_array())
                     S$ $formattedPrice</span>";
 
 // To Do 2:  Create a Form for adding the product to shopping cart. Starting ....
-    if($row[Quantity] > 0) {
+    if($row["Quantity"] > 0) {
     $MainContent .= "<form action='cartFunctions.php' method='post'>";
     $MainContent .= "<input type='hidden' name='action' value='add' />";
     $MainContent .= "<input type='hidden' name='product_id' value='$pid' />";
