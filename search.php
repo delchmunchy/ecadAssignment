@@ -43,12 +43,12 @@ if (isset($_GET['keywords'])) {
         {
 
             $product = "productDetails.php?pid=$row[ProductID]"; //Gets variable of Book
-            $MainContent .= "<a href=$product>$row[ProductTitle]</a></br>"; //Displays title of book
+            $MainContent .= "<a style='color:#f054de' href=$product>$row[ProductTitle]</a></br>"; //Displays title of book
         }
           
     }
     else {
-        $MainContent .= "<h3 style='color:red'>No records found</h3>";
+        $MainContent .= "<h3 style='color:red'>No records found.</h3>";
     }
 
 

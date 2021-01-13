@@ -20,7 +20,7 @@ while ($row = $result->fetch_array())
     //Display page header - product's name is read from "ProductTitle" column of "product" table
     $MainContent .= "<div class='row' >";
     $MainContent .= "<div class='col-sm-12' style='padding:5px'>"; //67% of row width
-    $MainContent .= "<span class='page-title'>$row[ProductTitle]</span>";
+    $MainContent .= "<span style='color:#f054de' class='page-title'>$row[ProductTitle]</span>";
     $MainContent .= "</div>";
     $MainContent .= "</div>";
 
@@ -48,12 +48,12 @@ while ($row = $result->fetch_array())
     //Right column - display the product's image
     $img = "./Images/products/$row[ProductImage]";
     $MainContent .= "<div class='col-sm-3' style='vertical-align:top; padding:5px'>"; 
-    $MainContent .= "<p><img src=$img /></p>";
+    $MainContent .= "<p><img src=$img style='width: 80%'/></p>";
 
     //Right column - display the product's price
     $formattedPrice = number_format($row["Price"], 2);
-    $MainContent .= "Price:<span style='font-weight: bold; color: red;'>
-                    S$ $formattedPrice</span>";
+    $MainContent .= "Price:<span style='font-weight: bold; color: black;'>
+                    S$ $formattedPrice</span><br><br>";
 
 // To Do 2:  Create a Form for adding the product to shopping cart. Starting ....
     if($row["Quantity"] > 0) {
@@ -61,18 +61,18 @@ while ($row = $result->fetch_array())
     $MainContent .= "<input type='hidden' name='action' value='add' />";
     $MainContent .= "<input type='hidden' name='product_id' value='$pid' />";
     $MainContent .= "Quantity: <input type='number' name='quantity' value='1'
-                      min='1' max='10' style='width:40px' required />";
+                      min='1' max='10' style='width:40px' required /><br><br>";
     $MainContent .= "<button type='submit'>Add to cart</button>";
     $MainContent .= "</form>";
     }
     else {
 
-    $MainContent .= "<br>Quantity: <input type='number' name='quantity' value='0'
+    $MainContent .= "Quantity: <input type='number' name='quantity' value='0'
                        style='width:40px' disabled />";
 
     $MainContent .= "<br><br><button type='submit' disabled>Add to cart</button>";
     
-    $MainContent .= "<br>Price:<span style='font-weight: bold; color: red;'>Product is out of stock!</span>";
+    $MainContent .= "<br><br><span style='font-weight: bold; color: red;'>Product is out of stock!☹</span>";
     }
 
     $MainContent .= "</div>"; //End of right column 

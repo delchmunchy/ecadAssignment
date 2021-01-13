@@ -28,7 +28,7 @@ while ($row = $result->fetch_array())
     $catname = urlencode($row["CatName"]);
     $catproduct = "catProduct.php?cid=$row[CategoryID]&catName=$catname";
     $MainContent .= "<div class='col-8'>"; //67% of row width
-    $MainContent .= "<p><a href=$catproduct>$row[CatName]</a></p>";
+    $MainContent .= "<p><a style='color:#f054de' href=$catproduct>$row[CatName]</a></p>";
     $MainContent .= "$row[CatDesc]";
     $MainContent .= "</div>";
 

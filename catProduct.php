@@ -36,15 +36,15 @@ while ($row = $result->fetch_array())
     $product = "productDetails.php?pid=$row[ProductID]";
     $formattedPrice = number_format($row["Price"], 2);
     $MainContent .= "<div class='col-8'>"; //67% of row width
-    $MainContent .= "<p><a href=$product>$row[ProductTitle]</a></p>";
-    $MainContent .= "Price:<span style='font-weight: bold; color: red;'>
+    $MainContent .= "<p><a style='color:#f054de' href=$product>$row[ProductTitle]</a></p>";
+    $MainContent .= "Price:<span style='font-weight: bold; color: black;'>
                     S$ $formattedPrice</span>";
     $MainContent .= "</div>";
     
     //Right column - display the product's image
     $img = "./Images/products/$row[ProductImage]";
     $MainContent .= "<div class='col-4'>"; //33% of row width
-    $MainContent .= "<img src='$img' />";
+    $MainContent .= "<img src='$img' style='width: 80%'/>";
     $MainContent .= "</div>";
 
     //End of a row
