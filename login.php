@@ -4,7 +4,7 @@ session_start();
 //Create a centrally located container
 $MainContent = "<div style='width:80%; margin:auto;'>";
 //Create a HTML form within the container
-$MainContent .= "<form action='checkLogin.php' method='post'>";
+$MainContent .= "<form action='checklogin.php' method='post'>";
 
 //1st Row - Header Row 
 $MainContent .= "<div class ='form-group row'>";

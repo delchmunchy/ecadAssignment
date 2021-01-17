@@ -30,7 +30,7 @@
 
         <div class="row">
             <div class="col-sm-12" style="padding:15px; ">
-                <?php echo $MainContent; ?>
+                            <?php echo $MainContent; ?>
             </div>
         </div>
 
