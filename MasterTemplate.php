@@ -34,11 +34,11 @@
                     <?php include("navbar.php"); ?>
                 </div>
             </div>
-            <!-- 3rd Row -->
-            <div class="row">
-                <div class="col-sm-12" style="padding:15px; ">
-                    <?php echo $MainContent; ?>
-                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12" style="padding:15px; ">
+                            <?php echo $MainContent; ?>
             </div>
             <!-- 4th Row -->
             <div class="row">

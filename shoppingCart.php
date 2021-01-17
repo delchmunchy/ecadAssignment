@@ -96,10 +96,21 @@ if (isset($_SESSION["Cart"])) {
 				
 		// To Do 4 (Practical 4): 
 		// Display the subtotal at the end of the shopping cart
-		$MainContent .= "<p style='text-align:right; font-size:20px'> 
+		$MainContent .= "<p style='text-align:right; font-size:15px'> 
 						Subtotal = S$". number_format($subTotal, 2);
 		$_SESSION["SubTotal"] = round($subTotal, 2);
-		
+
+		$MainContent .= "<p style='text-align:Left'>Delivery Mode:</p>";
+		$MainContent .= "<input type='radio' name='DeliveryMode' value='Normal' />";  
+		$MainContent .="<style='text-align:'> Normal Delivery - Delivered within 2 working days</>";
+		$MainContent .="<br>";
+		$MainContent .= "<input type='radio' name='DeliveryMode' value='Express' />";  
+		$MainContent .="<style='text-align:'> Express Delivery - Delivered within 24 hours</>";
+		$MainContent .="<br>";
+		//$MainContent .="<input type='submit' name='submit' value='Submit'>";
+		$MainContent .="<br>";
+		$MainContent .= "<p style='text-align:Left'>Delivery fee is: </p>";
+					
 		// To Do 7 (Practical 5):
 		// Add PayPal Checkout button on the shopping cart page
 		$MainContent .= "<form method='post' action='checkoutProcess.php'>";

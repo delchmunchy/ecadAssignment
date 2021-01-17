@@ -3,10 +3,11 @@
 session_start();
 // Create a centrally local container
 $MainContent = "<div style='width:80%; margin:auto;'>";
-// Create a HTML Form within the container 
+//Create a HTML form within the container
 $MainContent .= "<form action='checklogin.php' method='post'>";
-// 1st row - Header Row
-$MainContent .= "<div class='form-group row'>";
+
+//1st Row - Header Row 
+$MainContent .= "<div class ='form-group row'>";
 $MainContent .= "<div class='col-sm-9 offset-sm-3'>";
 $MainContent .= "<span class='page-title'>Member Login</span>";
 $MainContent .= "</div>";
