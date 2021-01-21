@@ -99,21 +99,25 @@ if (isset($_SESSION["Cart"])) {
 		$MainContent .= "<p style='text-align:right; font-size:15px'> 
 						Subtotal = S$". number_format($subTotal, 2);
 		$_SESSION["SubTotal"] = round($subTotal, 2);
-
+		$MainContent .= "<form method='post' action='checkoutProcess.php'>";
 		$MainContent .= "<p style='text-align:Left'>Delivery Mode:</p>";
-		$MainContent .= "<input type='radio' name='DeliveryMode' value='Normal' />";  
-		$MainContent .="<style='text-align:'> Normal Delivery - Delivered within 2 working days</>";
+		$MainContent .= "<input type='radio' name='Delivery' value='5.00' onchange='this.form.submit' required = 'required'/>";  
+		$MainContent .="<style='text-align:'> Normal Delivery - $5 delivery fee, deliver within 2 working days.</>";
 		$MainContent .="<br>";
-		$MainContent .= "<input type='radio' name='DeliveryMode' value='Express' />";  
-		$MainContent .="<style='text-align:'> Express Delivery - Delivered within 24 hours</>";
+		$MainContent .= "<input type='radio' name='Delivery' value='10.00' onchange='this.form.submit' required='required' />";  
+		$MainContent .="<style='text-align:'> Express Delivery - $10  delivery fee, deliver within 24 hours.</>";
 		$MainContent .="<br>";
 		//$MainContent .="<input type='submit' name='submit' value='Submit'>";
 		$MainContent .="<br>";
-		$MainContent .= "<p style='text-align:Left'>Delivery fee is: </p>";
+		//$MainContent .= "<p id='display' style='text-align:Left'>Delivery fee is: </p>";
+		//$MainContent .= "<p id='normal' style='text-align:Left; display:none'>Delivery fee is: $5</p>";
+		//$MainContent .= "<p id='express' style='text-align:Left; display:none'>Delivery fee is: $10</p>";
+
+
+		
 					
 		// To Do 7 (Practical 5):
 		// Add PayPal Checkout button on the shopping cart page
-		$MainContent .= "<form method='post' action='checkoutProcess.php'>";
 		$MainContent .= "<input type='image' style='float:right;' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'>";
 		$MainContent .= "</form></p>";		
 	}

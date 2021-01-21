@@ -39,7 +39,40 @@ if($_POST) //Post Data received from Shopping cart page.
 	$_SESSION["Tax"] = round($_SESSION["SubTotal"]*0.07, 2);
 	
 	// To Do 1B: Compute Shipping charge - S$2.00 per trip
-	$_SESSION["ShipCharge"] = 2.00;	
+	//$_SESSION["ShipCharge"] = 2.00;	
+
+	$NormalDelivery = 5.00;
+	$ExpressDelivery = 10.00;
+	
+	if (isset($_POST["Delivery"])){
+		//$_POST["Delivery"] = $_SESSION["Delivery"];
+		if($_POST["Delivery"] === '5.00'){
+			$_SESSION["ShipCharge"] = $NormalDelivery;
+			$_SESSION["NormalDelivery"] = "Checked";
+			$_SESSION["ExpressDelivery"] = "";
+		}else if ($_POST["Delivery"] === '10.00'){
+			$_SESSION["ShipCharge"] = $ExpressDelivery;
+			$_SESSION["NormalDelivery"] = "";
+			$_SESSION["ExpressDelivery"] = "Checked";
+		}else {
+			$_SESSION["ShipCharge"] = $NormalDelivery;
+			$_SESSION["NormalDelivery"] = "Checked";
+			$_SESSION["ExpressDelivery"] = "";  
+		}
+	}
+		else {
+			$_SESSION["ShipCharge"] = $NormalDelivery;
+			$_SESSION["NormalDelivery"] = "Checked";
+			$_SESSION["ExpressDelivery"] = "";  
+	}
+
+	/*
+	if (isset($_POST["ExpressDelivery"])){
+		$_SESSION["ShipCharge"] = $ExpressDelivery;
+	}
+*/
+	//$_SESSION["ShipCharge"] = 5.00;
+
 	
 	//Data to be sent to PayPal
 	$padata = '&CURRENCYCODE='.urlencode($PayPalCurrencyCode).
