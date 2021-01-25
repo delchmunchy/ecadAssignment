@@ -67,7 +67,7 @@ while ($row = $result->fetch_array())
     $oldPrice = number_format($row["Price"], 2);
     $MainContent .= "Price:<span style='font-weight: bold; color: black;'>
                     <del>S$ $oldPrice</del></span>";
-    $MainContent .= "<span style='font-weight: bold; color: red;'>
+    $MainContent .= "<span style='font-weight: bold; color: red; font-size:20px;'>
                     S$ $formattedPrice</span><br><br>";
     }
 // To Do 2:  Create a Form for adding the product to shopping cart. Starting ....
