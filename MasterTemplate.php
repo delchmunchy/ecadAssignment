@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="css/site.css">
 </head>
 
-<body>
+<body background="images/background.jpg">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
             <a href="index.php">
-            <img src="Images/flower.jpg" alt="Logo"
+            <img src="Images/flower3.png" alt="Logo"
                     class="img-fluid" style="width: 5%"/></a>
             Flamper
             </div>
@@ -39,7 +39,7 @@
             <div class="col-sm-12" style="text-align: right; ">
             <hr />
             Do you need help? Please email to:
-            <a href="mailto:flamper@np.edu.sg">Flamper</a>
+            <a style='color:#f244a3' href="mailto:flamper@np.edu.sg">Flamper</a>
             <p style="font-size:12px">&copy;Copyright by Flamper</p>
             </div>
         </div>

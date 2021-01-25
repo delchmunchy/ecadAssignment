@@ -42,7 +42,7 @@ while ($row = $result->fetch_array())
     $product = "productDetails.php?pid=$row[ProductID]";
     $formattedPrice = number_format($row["OfferedPrice"], 2);
     $MainContent .= "<div class='col-8'>"; //67% of row width
-    $MainContent .= "<p><a href=$product>$row[ProductTitle]</a></p>";
+    $MainContent .= "<p><a style='color:#f244a3' href=$product>$row[ProductTitle]</a></p>";
     $MainContent .= "Price:<span style='font-weight: bold; color: red;'>
                     S$ $formattedPrice</span>";
     $MainContent .= "</div>";

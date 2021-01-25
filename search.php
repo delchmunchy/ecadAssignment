@@ -34,8 +34,8 @@ $MainContent .= "<div class='col-sm-3'>";
 $MainContent .= "<button type='submit' class=' btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: black;'>Search</button>";
 $MainContent .= "</div>";
 
-$MainContent .= "<input type='checkbox' id='myCheck' name='myCheck' value='Yes'> ";
-$MainContent .= "<label for='myCheck'>        On Offer</label><br>";
+$MainContent .= "<input type='checkbox' id='myCheck' name='myCheck' value='Yes'></br> ";
+$MainContent .= "<label for='myCheck'>On Offer</label><br>";
 
 $MainContent .= "<div class='price-slider'><span>Price Range:</br>";
 $MainContent .= "<input type='number' label for='num1' name='num1' placeholder='1' min='0' max='200' required/>     to  ";
@@ -54,20 +54,25 @@ if(isset($_GET['num1']) && isset($_GET['num2']) && (isset($_GET['keywords']))) {
     $SearchText=$_GET["keywords"];
     $num1 = $_GET["num1"];
     $num2 = $_GET["num2"];
+    $msg = "Search results for '$SearchText' with a price range of $num1 to $num2";
+
     $qry = "SELECT ProductID, ProductTitle FROM product WHERE $num2 >= Price AND Price >= $num1 "; //Form SQL to select all categories
     if (isset($_GET['myCheck'])) {
-        $qry .= "AND Offered = 1 ";
+        $qry .= "AND Offered = 1  ";
+        $msg .= " and on offer:";
     }
     else {
         $qry .= "AND Offered = 0 ";
+        $msg .= ":";
     }
-    $qry .= "AND ProductTitle LIKE '%$SearchText%' OR ProductDesc LIKE '%$SearchText%' ORDER BY ProductTitle";
-    echo $qry;
+    $qry .= "AND ProductID IN (SELECT ProductID from product WHERE ProductTitle LIKE '%$SearchText%' OR ProductDesc LIKE '%$SearchText%') ORDER BY ProductTitle ASC ";
+    
     $result = $conn->query($qry); //Execute SQL to get the result
 
     if ($result->num_rows > 0) { // If found, display records
         //Display each category in a row
-         $MainContent .= "<b>Search results:</b></br>"; //creates search results header
+        
+         $MainContent .= "<b>$msg</b></br>"; //creates search results header
          while ($row = $result->fetch_array())
          {
              $product = "productDetails.php?pid=$row[ProductID]"; 
@@ -75,7 +80,7 @@ if(isset($_GET['num1']) && isset($_GET['num2']) && (isset($_GET['keywords']))) {
          } 
      }
      else {
-         $MainContent .= "<h3 style='color:red'>No records found.</h3>";
+         $MainContent .= "<h3 style='color:#f774bc'>No results found, please try again.</h3>";
      }
 }
 
