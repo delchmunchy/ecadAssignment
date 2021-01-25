@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Team 2</title>
+<title>Flamper</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -18,7 +18,7 @@
             <a href="index.php">
             <img src="Images/flower.jpg" alt="Logo"
                     class="img-fluid" style="width: 5%"/></a>
-            Team 2
+            Flamper
             </div>
         </div>
 
@@ -38,8 +38,8 @@
             <div class="col-sm-12" style="text-align: right; ">
             <hr />
             Do you need help? Please email to:
-            <a href="mailto:mamaya@np.edu.sg">Team 2</a>
-            <p style="font-size:12px">&copy;Copyright by Team 2</p>
+            <a href="mailto:flamper@np.edu.sg">Flamper</a>
+            <p style="font-size:12px">&copy;Copyright by Flamper</p>
             </div>
         </div>
 
