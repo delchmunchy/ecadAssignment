@@ -51,7 +51,7 @@ while ($row = $result->fetch_array())
     $MainContent .= "<p><a style='color:#f054de' href=$product>$row[ProductTitle]</a></p>";
     $MainContent .= "Price:<span style='font-weight: bold; color: black;'>
                     <del>S$ $oldPrice</del></span>";
-    $MainContent .= "<span style='font-weight: bold; color: red;'>
+    $MainContent .= "<span style='font-weight: bold; color: red; font-size:20px'>
                     S$ $formattedPrice</span><br><br>";
                     $MainContent .= "<button type='button' disabled class='btn btn-primary' style='background-color:#f59acc; border-color:#f59acc; width: 20%; color:black;'>On Sale</button></br></br>";
     $MainContent .= "</div>";
