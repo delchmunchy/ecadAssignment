@@ -4,11 +4,14 @@ session_start();
 $MainContent = "";
 
 //Read the data input from the previous page
-$name = $_POST["name"];
-$address = $_POST["address"];
-$country = $_POST["country"];
-$phone = $_POST["phone"];
-$email = $_POST["email"];
+$name       = $_POST["name"];
+$birthdate  = $_POST["birthdate"];
+$address    = $_POST["address"];
+$country    = $_POST["country"];
+$phone      = $_POST["phone"];
+$email      = $_POST["email"];
+$pwdQn      = $_POST["pwdQn"];
+$pwdAns     = $_POST["pwdAns"];
 
 //Create a password hash using the default bcrypt algorithm
 $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
@@ -17,11 +20,11 @@ $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 include_once("mysql_conn.php");
 
 //Define the INSERT SQL statement
-$qry = "INSERT INTO Shopper (Name, Address, Country, Phone, Email, Password)
-        VALUES (?, ?, ?, ?, ?, ?)";
+$qry = "INSERT INTO Shopper (Name, Birthdate, Address, Country, Phone, Email, Password, PwdQuestion, PwdAnswer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($qry);
-// "ssssss" - 6 string parameters
-$stmt->bind_param("ssssss", $name, $address, $country, $phone, $email, $password);
+
+// "sssssssss" - 9 string parameters
+$stmt->bind_param("sssssssss", $name, $birthdate, $address, $country, $phone, $email, $password, $pwdQn, $pwdAns);
 
 if ($stmt->execute()) { //SQL statement executed successfully
     //Retrieve the Shopper ID assigned to the new shopper
