@@ -5,8 +5,14 @@ session_start();
 
 // Create a container, 60% width of viewport
 
+
 $MainContent = "<div style='width:60%; margin:auto;'>";
 // Display Page Header - 
+$MainContent .= "<p><a style='color:#f244a3'>Gifts for all ages.</a></p>";
+$MainContent .= "<span style='font-weight: bold; color: black; font-size: 25px;'>Products on Offer</span></br>";
+
+$MainContent = "<img src='Images/banner2.jpg'  
+                     style='display:block; margin:auto; width:100%; height: 9%;'/>";
 
 
 $MainContent .= "<div class='row' style='padding:5px'>";
