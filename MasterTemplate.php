@@ -39,7 +39,7 @@
             <div class="col-sm-12" style="text-align: right; ">
             <hr />
             Do you need help? Please email to:
-            <a style='color:#f244a3' href="mailto:flamper@np.edu.sg">Flamper</a>
+            <a style='color:#f244a3' href="mailto:flamper@flamper.com.sg">Flamper</a>
             <p style="font-size:12px">&copy;Copyright by Flamper</p>
             </div>
         </div>
