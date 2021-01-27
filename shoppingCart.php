@@ -44,6 +44,7 @@ if (isset($_SESSION["Cart"])) {
 		// To Do 3 (Practical 4): 
 		// Display the shopping cart content
 		$subTotal = 0; // Declare a variable to compute subtotal before tax
+		$totalItem = 0; 
 		$MainContent .= "<tbody>";
 		while ($row = $result->fetch_array()) {
 			$MainContent .= "<tr>";
@@ -89,6 +90,7 @@ if (isset($_SESSION["Cart"])) {
 			
 			// Accumulate the running sub-total
 			$subTotal += $row["Total"];
+			$totalItem += $row["Quantity"];
 		}
 		$MainContent .= "</tbody>";
 		$MainContent .= "</table>";
@@ -98,8 +100,15 @@ if (isset($_SESSION["Cart"])) {
 		// Display the subtotal at the end of the shopping cart
 		$MainContent .= "<p style='text-align:right; font-size:15px'> 
 						Subtotal = S$". number_format($subTotal, 2);
+		$MainContent .= "<p style='text-align:right; font-size:15px'> 
+						Total Item = ".$totalItem;
 		$_SESSION["SubTotal"] = round($subTotal, 2);
+		$_SESSION["Total Item"] = $totalItem;
 		$MainContent .= "<form method='post' action='checkoutProcess.php'>";
+
+		if ($subTotal < 200) {
+			
+		
 		$MainContent .= "<p style='text-align:Left'>Delivery Mode:</p>";
 		$MainContent .= "<input type='radio' name='Delivery' value='5.00' onchange='this.form.submit' required = 'required'/>";  
 		$MainContent .="<style='text-align:'> Normal Delivery - $5 delivery fee, deliver within 2 working days.</>";
@@ -113,14 +122,14 @@ if (isset($_SESSION["Cart"])) {
 		//$MainContent .= "<p id='normal' style='text-align:Left; display:none'>Delivery fee is: $5</p>";
 		//$MainContent .= "<p id='express' style='text-align:Left; display:none'>Delivery fee is: $10</p>";
 
-
-		
-					
-		// To Do 7 (Practical 5):
-		// Add PayPal Checkout button on the shopping cart page
-		$MainContent .= "<input type='image' style='float:right;' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'>";
-		$MainContent .= "</form></p>";		
 	}
+
+	else {
+		$MainContent .= "<style='text-align:'>Free Delivery!</>";
+	}
+				
+		
+}
 	else {
 		$MainContent .= "<h3 style='text-align:center; color:red;'>Empty shopping cart!</h3>";
 	}
@@ -129,9 +138,13 @@ if (isset($_SESSION["Cart"])) {
 else {
 	$MainContent .= "<h3 style='text-align:center; color:red;'>Empty shopping cart!</h3>";
 }
+
+// To Do 7 (Practical 5):
+		// Add PayPal Checkout button on the shopping cart page
+		$MainContent .= "<input type='image' style='float:right;' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'>";
+		$MainContent .= "</form></p>";		
+
 $MainContent .= "</div>";
 
 include("MasterTemplate.php"); 
 ?>
-
-// i am a poopoohead
