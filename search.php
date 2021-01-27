@@ -1,13 +1,4 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="js/function.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <!-- Site specific Cascading Stylesheet -->
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-</html>
+
 <?php 
 // Detect the current session
 session_start();
@@ -75,16 +66,24 @@ if(isset($_GET['num1']) && isset($_GET['num2']) && (isset($_GET['keywords']))) {
          $MainContent .= "<b>$msg</b></br>"; //creates search results header
          while ($row = $result->fetch_array())
          {
+             
              $product = "productDetails.php?pid=$row[ProductID]"; 
              $MainContent .= "<a style='color:#f054de' href=$product>$row[ProductTitle]</a></br>"; 
          } 
      }
      else {
-         $MainContent .= "<h3 style='color:#f774bc'>No results found, please try again.</h3>";
+        $MainContent .= "<b>$msg</b></br>";
+        if (isset($_GET['myCheck'])) {
+            $msg .= " and on offer:";
+            $MainContent .= "<h3 style='color:#f774bc'>No results found, please try again.</h3>";
+        }
+        else {
+            $msg .= ":";
+            $MainContent .= "<h3 style='color:#f774bc'>No results found, please try again.</h3>";
+        }
      }
 }
-
-
 $MainContent .= "</div>"; // End of Container
 include("MasterTemplate.php");
+include("searchcss.php");
 ?>
