@@ -43,7 +43,7 @@ if ($result->num_rows > 0) { // SQL statement executed successfully
 	  }
 	}
 } else {
-	$MainContent = "<h3 style='color:red'>You have entered a wrong email credentials!</h3>";
+	$MainContent = "<h3 style='color:#f244a3'>User not found in database, please log in again!</h3>";
 }
 
  // Close database connection

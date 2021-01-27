@@ -29,8 +29,9 @@ $MainContent .= "</div>";
 // 4th row - Login Button
 $MainContent .= "<div class='form-group row'>";
 $MainContent .= "<label class='col-sm-9 offset-sm-3'>";
-$MainContent .= "<button type='submit' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: black;'>Login</button>";
+$MainContent .= "<button type='submit' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: black;'>Login</button></br></br>";
 $MainContent .= "<p>Please sign up if you do not have an account.</p>";
+$MainContent .= "<p><a style='color: #f244a3; 'href='forgetPassword.php'> Forgot Password</a></p>";
 $MainContent .= "</div>";
 $MainContent .= "</div>";
 $MainContent .= "</form>";
