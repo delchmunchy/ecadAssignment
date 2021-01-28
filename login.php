@@ -35,7 +35,7 @@ $MainContent .= "<p><a style='color: #f244a3; 'href='forgetPassword.php'> Forgot
 $MainContent .= "</div>";
 $MainContent .= "</div>";
 $MainContent .= "</form>";
-$MainContent .= "</div>";
+
 // Include the Page Layout template
 include("MasterTemplate.php");
 ?>
