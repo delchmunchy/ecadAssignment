@@ -40,7 +40,8 @@ if ($result->num_rows > 0) { // SQL statement executed successfully
 		exit;
 	  } else {
 		$MainContent = "<h3 style='color:red'>You have entered a wrong password!</h3>";
-	  }
+		$MainContent .= "<a href='login.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: black;'>Go back</a></br></br>";
+		}
 	}
 } else {
 	$MainContent = "<h3 style='color:#f244a3'>User not found in database, please log in again!</h3>";
