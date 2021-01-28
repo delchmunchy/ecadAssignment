@@ -37,7 +37,7 @@ if (isset($_POST['email'])) {
 	$stmt->execute();
 	$result = $stmt->get_result();
     $stmt->close();
-    // If there is a result, update the password in the DB
+    // If there is a result, answer the question.
     if ($result->num_rows > 0) {
         $row = $result->fetch_array();
         $pwdQn = $row["PwdQuestion"];
