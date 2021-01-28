@@ -65,7 +65,6 @@ while ($row = $result->fetch_array())
 // To Do:  Ending ....
 
 $conn->close(); // Close database connnection
-$MainContent .= "</div>"; // End of container
 
 
 include("MasterTemplate.php"); 
