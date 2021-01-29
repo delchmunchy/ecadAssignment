@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_POST['action'])) {
- 	switch ($_POST['action']) {
+	switch ($_POST['action']) {
     	case 'add':
         	addItem();
             break;
@@ -52,7 +52,7 @@ function addItem() {
 	  $addNewItem = 0;
 	  if ($result->num_rows > 0) { //Selected products exist in shopping cart
 		//increase the quantity of purchase
-		$qry = "UPDATE ShopCartItem SET Quantity=LEAST(Quantity+?, 10)
+		$qry = "UPDATE ShopCartItem SET Quantity=LEAST(Quantity+?,10)
 				WHERE ShopCartID=? AND ProductID=?";
 		$stmt = $conn->prepare($qry);
 		// "iii" - 3 integers
@@ -104,7 +104,12 @@ function updateItem() {
 	$stmt->execute();
 	$stmt->close();
 	$conn->close();
-	header ("Location: shoppingCart.php");
+	// Check for delivery status, maintain it
+	if ($_POST['delivery']) {
+		header ("Location: shoppingCart.php?delivery=" . $_POST['delivery']);
+	} else {
+		header ("Location: shoppingCart.php");
+	}
 	exit;
 }
 
@@ -130,4 +135,5 @@ function removeItem() {
     header ("Location: shoppingCart.php");
     exit;
 }		
+
 ?>
