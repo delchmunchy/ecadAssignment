@@ -10,6 +10,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/checkbox.js"></script>
 <link rel="stylesheet" href="css/site.css">
+
 </head>
 
 <body background="images/background.jpg">
@@ -25,6 +26,7 @@
 
         <div class="row">
             <div class="col-sm-12">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <?php include("navbar.php"); ?>
             </div>
         </div>
@@ -45,4 +47,9 @@
         </div>
 
     </div>
+    <style>
+        .navbar a:hover {
+        background-color: #f2f2f2;
+        }
+    </style>
 </body>

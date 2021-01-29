@@ -51,48 +51,58 @@ if (isset($_SESSION["Cart"])) {
 
 		while ($row = $result->fetch_array()) {
 
-			$selected_qty = $row['Quantity'];
-
+			// Production Informaiton
 			$MainContent .= "<tr>";
-			$MainContent .= "<td style='width:50%'>" . $row["Name"] ."<br />";
+			$MainContent .= "<td style='width:50%'>";
+			// Obtain image name from DB to display
+			$imageQry = "SELECT ProductImage FROM product WHERE ProductID=?";
+			$stmt = $conn->prepare($imageQry);
+			$stmt->bind_param("i", $row['ProductID']); 
+			$stmt->execute();
+			$imageResult = $stmt->get_result();
+			$stmt->close();
+			$imageName = "";
+			while ($imageRow = $imageResult->fetch_array()) {
+				$imageName = $imageRow['ProductImage'];
+			}
+			$MainContent .= "<img src='Images/Products/" . $imageName . 
+							"' style='max-width:120px; max-height:120px; '/> <br/>";
+			// Display remaining product information
+			$MainContent .= $row["Name"] ."<br />";
 			$MainContent .= "Product ID: " . $row["ProductID"] . "</td>";
 			$MainContent .= "<td>" . number_format($row["Price"], 2) . "</td>";
+			
+			
+			// Quantity Management
 			$MainContent .= "<td>";		
 			$MainContent .= "<form action='cartFunctions.php' method='post'>";
-			
 			// Obtain the maximum quantity
-			$max_qty = 0;
-			$qty_query = "SELECT Quantity FROM product WHERE ProductID=?";
-			$stmt = $conn->prepare($qty_query);
+			$maxQty = 0;
+			$qtyQuery = "SELECT Quantity FROM product WHERE ProductID=?";
+			$stmt = $conn->prepare($qtyQuery);
 			$stmt->bind_param("i", $row['ProductID']);
 			$stmt->execute();
-			$qty_query_result = $stmt->get_result();
+			$qtyQueryResult = $stmt->get_result();
 			$stmt->close();
-			while ($qty_query_row = $qty_query_result->fetch_array()) {
-				$max_qty = $qty_query_row['Quantity'];
+			while ($qtyQueryRow = $qtyQueryResult->fetch_array()) {
+				$maxQty = $qtyQueryRow['Quantity'];
 			}
-			// Generate dropdown with only maximum quantity (Optonal)
-			/*$MainContent .= "<select name='quantity' class='form form-control' onChange='this.form.submit()'>"; 
-			for ($i = 1; $i <= $max_qty; $i++) {
-				$is_selected = '';
-				if ($i == $selected_qty) {
-					$is_selected = 'selected';
-				}
-				$MainContent .= "<option value='" . $i . "' ". $is_selected . ">" . $i . "</option>";	
-			}
-			$MainContent .= "</select>";*/
-
 			// Textbox with +/- capabilities for quantity (restricted between 1 and quantity available)
 			$MainContent .= "<input name='quantity' id='sc_quantity_". $row['ProductID']. "' " .
-							"value='" . $selected_qty. "' />";
-			$MainContent .= "<button onClick='document.getElementById(\"sc_quantity_" . $row['ProductID']. "\").value = Math.max(1, " . $selected_qty ." - 1)'>-</button>";
-			$MainContent .= "<button onClick='document.getElementById(\"sc_quantity_" . $row['ProductID']. "\").value = Math.min(" . $max_qty . ", " . $selected_qty ." + 1)'>+</button>";
+							"value='" . $row['Quantity'] . "' " .
+							"onChange='this.value= (Math.max(1, Math.min( " . $maxQty. 
+									   ", this.value)) || " . $row['Quantity']. "); this.form.submit();' />";
+			$MainContent .= "<button onClick='document.getElementById(\"sc_quantity_" . $row['ProductID']. "\").value = Math.max(1, " . $row['Quantity'] ." - 1)'>-</button>";
+			$MainContent .= "<button onClick='document.getElementById(\"sc_quantity_" . $row['ProductID']. "\").value = Math.min(" . $maxQty . ", " . $row['Quantity'] ." + 1)'>+</button>";
 			// End of textbox with +/- capabilities
-
-			$MainContent .= "<input type='hidden' name='delivery' value='" . $_GET['delivery'] . "' />";
+			$deliveryValue = "";
+			if (isset($_GET['delivery'])) $deliveryValue = $_GET['delivery'];
+			$MainContent .= "<input type='hidden' name='delivery' value='" . $deliveryValue . "' />";
 			$MainContent .= "<input type='hidden' name='action' value='update' />";
 			$MainContent .= "<input type='hidden' name='product_id' value='$row[ProductID]' />";
 			$MainContent .= "</form>";
+
+			// Price for this product
 			$MainContent .= "</td>";
 			$formattedTotal = number_format($row["Total"], 2) ;
 			$MainContent .= "<td>$formattedTotal</td>";
@@ -191,5 +201,5 @@ if (isset($_SESSION["Cart"])) {
 }
 $MainContent .= "</div>";
 include("MasterTemplate.php");
-
+include("shoppingCartCSS.php");
 ?>

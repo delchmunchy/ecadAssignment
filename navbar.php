@@ -27,7 +27,7 @@ if(isset($_SESSION["ShopperName"])) {
 <!-- To Do 3 (Practical 1) - 
      Display a navbar which is visible before or after collapsing -->
 
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #f59acc">
+<nav class="navbar navbar-expand-md navbar-dark">
     <!--Dynamic Text Display-->
     <span class="navbar-text ml-md-2"
             style="color:#000000;">
@@ -46,22 +46,25 @@ if(isset($_SESSION["ShopperName"])) {
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #f59acc">
     <!--Collapsible part of navbar-->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+    
     <!--Left-justified menu items-->
     <ul class="navbar-nav mr-auto">
+
         <li class="nav-item">
-            <a class="nav-link " href="index.php">Index</a>
+        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="category.php">Product Categories</a>
+            <a class="nav-link" href="category.php"><i class="fa fa-money"></i> Product Categories</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="search.php">Product Search</a>
+            <a class="nav-link" href="search.php"><i class="fa fa-search"></i> Product Search</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="feedback.php">Feedback</a>
+            <a class="nav-link" href="feedback.php"><i class="fa fa-comment"></i> Feedback</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="shoppingCart.php">Shopping Cart</a>
+            <a class="nav-link" href="shoppingCart.php"><i class="fa fa-shopping-cart"></i> Shopping Cart</a>
         </li>
     </ul>
     <!--Right-justified menu items-->

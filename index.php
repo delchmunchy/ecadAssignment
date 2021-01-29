@@ -6,14 +6,15 @@ session_start();
 // Create a container, 60% width of viewport
 
 
+
 $MainContent = "<div style='width:60%; margin:auto;'>";
 // Display Page Header - 
-$MainContent .= "<p><a style='color:#f244a3'>Gifts for all ages.</a></p>";
-$MainContent .= "<span style='font-weight: bold; color: black; font-size: 25px;'>Products on Offer</span></br>";
+
+
+
 
 $MainContent = "<img src='Images/banner2.jpg'  
-                     style='display:block; margin:auto; width:100%; height: 9%;'/>";
-
+                     style='display:block; margin:auto; width:100%; height: 20%;'/>"; 
 
 $MainContent .= "<div class='row' style='padding:5px'>";
 $MainContent .= "<div class='col-12'>";
@@ -34,7 +35,7 @@ $result = $stmt->get_result();
 $stmt->close();
 
 $row = $result->fetch_array();
-
+$MainContent .= "<p><a style='color:#f244a3'>Gifts for all ages.</a></p>";
 $MainContent .= "<span style='font-weight: bold; color: black; font-size: 25px;'>Products on Offer</span></br>";
 $MainContent .= "<span style='color: black; font-size: 15px;'>These are the products that are currently on offer at discounted prices.</span>";
 
@@ -42,7 +43,7 @@ $MainContent .= "<span style='color: black; font-size: 15px;'>These are the prod
 while ($row = $result->fetch_array())
 {
     //Start a new row
-    $MainContent .= "<div class='row' style='padding:5x'>";
+    $MainContent .= "<div class='row' style='padding:5x'>"; 
 
     //Left column - display a text link showing the product's name, display the selling price in red in a new paragraph
     $product = "productDetails.php?pid=$row[ProductID]";
@@ -68,4 +69,5 @@ $conn->close(); // Close database connnection
 
 
 include("MasterTemplate.php"); 
+
 ?>
