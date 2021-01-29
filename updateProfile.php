@@ -146,27 +146,24 @@ $MainContent .= "</div>";
 $MainContent .= "</form>";
 $MainContent .= "</div>";
 
-// Check if there is a Name
-if (isset($_POST['name']) || isset($_POST['birthdate']) || isset($_POST['address']) || isset($_POST['country']) || isset($_POST['phone']) || isset($_POST['email']) || isset($_POST['pwdQn']) || isset($_POST['pwdAns'])) {
-
-    if ($_POST['email'] == $row['Email']) {
-        echo '<script>alert("Email already in use!")</script>';
-        header('updateProfile.php'); 
-    } else {
-        if (isset($_POST['pwd1']) && isset($_POST['pwd2']) && $_POST['pwd1'] === $_POST['pwd2']) {
-    
-            $qry = "UPDATE shopper SET Password = ? WHERE ShopperID = ?";
-            $stmt = $conn->prepare($qry);
-            $stmt->bind_param("si", $_POST['pwd1'], $_SESSION["ShopperID"]);
-            $stmt->execute();
-            $stmt->close();
-        }
-        $qry = "UPDATE shopper SET Name = ?, BirthDate = ?, Address = ?, Country = ?, Phone = ?, Email = ?, PwdQuestion = ?, PwdAnswer = ? WHERE ShopperID = ?";
+// Check the POST inputs
+if (isset($_POST['name']) || isset($_POST['birthdate']) || isset($_POST['address']) || isset($_POST['country']) || isset($_POST['phone']) || isset($_POST['email']) || isset($_POST['pwd1']) || isset($_POST['pwd2']) || isset($_POST['pwdQn']) || isset($_POST['pwdAns'])) {
+    $qry = "UPDATE shopper SET Name = ?, BirthDate = ?, Address = ?, Country = ?, Phone = ?, Email = ?, PwdQuestion = ?, PwdAnswer = ? WHERE ShopperID = ?";
+    $stmt = $conn->prepare($qry);
+    $stmt->bind_param("sssssssss", $_POST['name'], $_POST['birthdate'], $_POST['address'], $_POST['country'], $_POST['phone'], $_POST['email'], $_POST['pwdQn'], $_POST['pwdAns'], $_SESSION["ShopperID"]); 	// "s" - string 
+    $stmt->execute();
+    $stmt->close();
+    header('updateProfile.php'); 
+    if ($_POST['pwd1'] == $_POST['pwd2']) {
+        $qry = "UPDATE shopper SET Password = ? WHERE ShopperID = ?";
         $stmt = $conn->prepare($qry);
-        $stmt->bind_param("sssssssss", $_POST['name'], $_POST['birthdate'], $_POST['address'], $_POST['country'], $_POST['phone'], $_POST['email'], $_POST['pwdQn'], $_POST['pwdAns'], $_SESSION["ShopperID"]); 	// "s" - string 
+        $stmt->bind_param("si", $_POST['pwd1'], $_SESSION["ShopperID"]);
         $stmt->execute();
         $stmt->close();
         $MainContent = "<p style='text-align:center;'>Your profile has been updated!<p/>";
+    } else {
+        echo '<script>alert("Passwords do not match!")</script>';
+        header('updateProfile.php'); 
     }
 }
 
