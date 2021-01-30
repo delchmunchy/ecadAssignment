@@ -23,8 +23,9 @@ $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 $stmt->close();
+$row = $result->fetch_array();
 
-if (!$result) {
+if (!$row) {
     //Define the INSERT SQL statement
     $qry = "INSERT INTO Shopper (Name, Birthdate, Address, Country, Phone, Email, Password, PwdQuestion, PwdAnswer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($qry);
@@ -39,13 +40,14 @@ if (!$result) {
         }
         //Display successful message and ShopperID
         $MainContent .= "Registration Successful!<br />";
-        $MainContent .= "Your Shopper ID is $_SESSION[ShopperID]<br />";
+        // $MainContent .= "Your Shopper ID is $_SESSION[ShopperID]<br />";
         //Save the Shopper name in a session variable
+
         $_SESSION["ShopperName"] = $name;
     }
     else {
         $MainContent .= "<h3 style='color:red'>Error in inserting record</h3>";
-        $MainContent .= "<a href='register.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: black;'>Go back</a></br></br>";
+        $MainContent .= "<a href='register.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
     }
     //Release the resource allocated for prepared statement
     $stmt->close();
@@ -53,7 +55,7 @@ if (!$result) {
     $conn->close(); 
 } else {
     $MainContent = "<h3 style='color:red'>Email is already in use!</h3>";
-    $MainContent .= "<a href='register.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: black;'>Go back</a></br></br>";
+    $MainContent .= "<a href='register.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
 }
 
 //Include the master template file for this page

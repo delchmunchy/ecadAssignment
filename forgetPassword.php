@@ -1,28 +1,29 @@
 <?php 
 session_start();
 $MainContent = "<div style='width:80%; margin:auto;'>";
-$MainContent .= "<form action='forgetPassword.php' method='post'>";
+$MainContent .= "<h1 class='page-title' style='text-align:center;'>Forget Password</h1>";
 
-$MainContent .= "<div class='form-group row'>";
-$MainContent .= "<div class='col-sm-9 offset-sm-3'>";
-$MainContent .= "<span class='page-title'>Forget Password</span>";
-$MainContent .= "</div>";
-$MainContent .= "</div>";
+    $MainContent .= "<form action='forgetPassword.php' method='post'>";
 
-$MainContent .= "<div class='form-group row'>";
-$MainContent .= "<label class='col-sm-3 col-form-label' for='email'>Email Address:</label>";
-$MainContent .= "<div class='col-sm-9'>";
-$MainContent .= "<input class='form-control' name='email' id='email'type='email' required />";
-$MainContent .= "</div>";
-$MainContent .= "</div>";
+        $MainContent .= "<div class='form-group row'>";
+            $MainContent .= "<div class='col-sm-13'>";
+            $MainContent .= "</div>";
+        $MainContent .= "</div>";
 
-$MainContent .= "<div class='form-group row'>";       
-$MainContent .= "<div class='col-sm-9 offset-sm-3'>";
-$MainContent .= "<button type='submit'>Submit</button>";
-$MainContent .= "</div>";
-$MainContent .= "</div>";
+        $MainContent .= "<div class='form-group row'>";
+            $MainContent .= "<label class='col-sm-3 col-form-label' for='email'>Email Address:</label>";
+            $MainContent .= "<div class='col-sm-9'>";
+                $MainContent .= "<input class='form-control' name='email' id='email'type='email' required />";
+            $MainContent .= "</div>";
+        $MainContent .= "</div>";
 
-$MainContent .= "</form>";
+        $MainContent .= "<div class='form-group row'>";       
+            $MainContent .= "<div class='col-sm-9 offset-sm-3'>";
+                $MainContent .= "<button class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);' type='submit'>Submit</button>";
+            $MainContent .= "</div>";
+        $MainContent .= "</div>";
+
+    $MainContent .= "</form>";
 $MainContent .= "</div>";
 
 // Process after user click the submit button
@@ -50,7 +51,7 @@ if (isset($_POST['email'])) {
         $MainContent .= "<div class='form-group row'>";
         $MainContent .= "<label class='col-sm-3 col-form-label' for='pwdQn'>Security Question: </label>";
         $MainContent .= "<div class='col-sm-9'>";
-        $MainContent .= "<label class='col-sm-3 col-form-label' name='pwdQn' id='pwdQn'>$pwdQn</label>";
+        $MainContent .= "<label class='col-sm-6 col-form-label' name='pwdQn' id='pwdQn'>$pwdQn</label>";
         $MainContent .= "</div>";
         $MainContent .= "</div>"; 
         
@@ -63,7 +64,7 @@ if (isset($_POST['email'])) {
 
         $MainContent .= "<div class='form-group row'>";       
         $MainContent .= "<div class='col-sm-9 offset-sm-3'>";
-        $MainContent .= "<button type='submit'>Submit</button>";
+        $MainContent .= "<button class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);' type='submit'>Submit</button>";
         $MainContent .= "</div>";
         $MainContent .= "</div>";
 
@@ -72,6 +73,8 @@ if (isset($_POST['email'])) {
     }
     else {
         $MainContent .= "<p><span style='color:red;'>Wrong E-mail address!</span>";
+        $MainContent .= "<a href='forgetPassword.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
+
     }
 	$conn->close();
 }
@@ -91,8 +94,11 @@ if (isset($_POST["pwdAns"])) {
 
         $MainContent = "<p>Your new temporary password is <b>tempPassword</b>.<br/> 
         Please use this password to log in and then change it to a new one for security reasons.<p/>";
+        $MainContent .= "<a href='forgetPassword.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
     } else {
         $MainContent = "<p style='color:red; text-align:center;'>Incorrect answer!</p>";
+        $MainContent .= "<a href='forgetPassword.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
+
     }
 }
 

@@ -2,20 +2,11 @@
 // Detect the current session
 session_start();
 
-
 // Create a container, 60% width of viewport
-
-
-
 $MainContent = "<div style='width:60%; margin:auto;'>";
+
 // Display Page Header - 
-
-
-
-
-$MainContent = "<img src='Images/banner2.jpg'  
-                     style='display:block; margin:auto; width:100%; height: 20%;'/>"; 
-
+$MainContent = "<img src='Images/banner2.jpg' style='display:block; margin:auto; width:100%; height: 20%;'/>";
 $MainContent .= "<div class='row' style='padding:5px'>";
 $MainContent .= "<div class='col-12'>";
 $MainContent .= "</div>";
@@ -27,8 +18,7 @@ include_once("mysql_conn.php");
 // To Do:  Starting ....
 //Form SQL to retrieve list of products associated to the Category ID
 $date = date("Y-m-d");
-$qry = "SELECT *
-        FROM Product p WHERE p.OfferedPrice IS NOT NULL AND p.OfferEndDate > $date AND $date < p.OfferStartDate ORDER BY p.ProductTitle ASC";
+$qry = "SELECT * FROM Product p WHERE p.OfferedPrice IS NOT NULL AND p.OfferEndDate > $date AND $date < p.OfferStartDate ORDER BY p.ProductTitle ASC";
 $stmt = $conn->prepare($qry);
 $stmt->execute();
 $result = $stmt->get_result();
