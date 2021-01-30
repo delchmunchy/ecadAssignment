@@ -51,7 +51,7 @@ if (isset($_SESSION["Cart"])) {
 
 		while ($row = $result->fetch_array()) {
 
-			// Production Informaiton
+			// Production Information
 			$MainContent .= "<tr>";
 			$MainContent .= "<td style='width:50%'>";
 			// Obtain image name from DB to display
@@ -200,6 +200,5 @@ if (isset($_SESSION["Cart"])) {
 	$MainContent .= "<h3 style='text-align:center; color:red;'>Empty shopping cart!</h3>";
 }
 $MainContent .= "</div>";
-include("MasterTemplate.php");
-include("shoppingCartCSS.php");
+include("MasterTemplate.php");	
 ?>

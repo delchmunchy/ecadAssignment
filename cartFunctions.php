@@ -73,7 +73,7 @@ function addItem() {
 	  $conn->close();
 	  
   	// Update session variable used for counting number of items in the shopping cart.
-	if (isset($_SESSION["NumCartItem"])) {
+	  if (isset($_SESSION["NumCartItem"])) {
 		$_SESSION["NumCartItem"] = $_SESSION["NumCartItem"] + $addNewItem;
 	}
 	else {

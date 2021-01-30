@@ -13,7 +13,7 @@ if(isset($_SESSION["ShopperName"])) {
     //after shopper has logged in.
     $content1 = "Welcome <b>$_SESSION[ShopperName]</b>";
     $content2 = "<li class='nav-item'>
-                 <a class='nav-link' href='updateProfile.php'>Update Profile</a></li>
+                 <a class='nav-link' href='changePassword.php'>Change Password</a></li>
                  <li class='nav-item'>
                  <a class='nav-link' href='logout.php'>Logout</a></li>";
 	
@@ -24,47 +24,34 @@ if(isset($_SESSION["ShopperName"])) {
     }
 }
 ?>
-<!-- To Do 3 (Practical 1) - 
-     Display a navbar which is visible before or after collapsing -->
 
-<nav class="navbar navbar-expand-md navbar-dark">
-    <!--Dynamic Text Display-->
-    <span class="navbar-text ml-md-2"
-            style="color:#000000;">
-            <?php echo $content1; ?>
-    </span>
-
-    <!--Collapsible Button-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</nav>
 
 <!-- To Do 4 (Practical 1) - 
      Define a collapsible navbar -->
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #f59acc">
+<nav class="navbar navbar-expand-md navbar-light">
     <!--Collapsible part of navbar-->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
-    
     <!--Left-justified menu items-->
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" style="align-items: center;">
 
         <li class="nav-item">
-        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
+            <a class="nav-link" href="category.php">Product Categories</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="category.php"><i class="fa fa-money"></i> Product Categories</a>
+            <a class="nav-link" href="search.php">Product Search</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="search.php"><i class="fa fa-search"></i> Product Search</a>
+            <a class="nav-link" href="feedback.php">Feedback</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="feedback.php"><i class="fa fa-comment"></i> Feedback</a>
+        
+        <li class="nav-item" style="margin-left: 130px; margin-right: 130px;">
+            <a href="index.php">
+            <img src="Images/FloralLogo.png" alt="Logo" style="height:84px; width:150px;"/></a>
+            <p style="text-align:center; margin-top:-15px; font-family: cursive;">Flamper</p>
         </li>
+
         <li class="nav-item">
-            <a class="nav-link" href="shoppingCart.php"><i class="fa fa-shopping-cart"></i> Shopping Cart</a>
+            <a class="nav-link" href="shoppingCart.php">Shopping Cart</a>
         </li>
     </ul>
     <!--Right-justified menu items-->
@@ -72,6 +59,23 @@ if(isset($_SESSION["ShopperName"])) {
         <?php echo $content2; ?>
     </ul>
 </div>
+</nav>
+
+<!-- To Do 3 (Practical 1) - 
+     Display a navbar which is visible before or after collapsing -->
+
+     <nav class="navbar navbar-expand-md navbar-dark" style="height:200px; width:1100px;">
+    <!--Dynamic Text Display-->
+    <span class="navbar-text ml-md-2"
+            style="background:url(Images/FloralBanner.png) no-repeat; width: 150%; height: 100%; display:block">
+            <p style="color:#ff003bbd; font-size:35px; font-weight: bold; margin-left: 30px; margin-top:50px; font-family: monospace"><?php echo $content1; ?></p>
+    </span>
+
+    <!--Collapsible Button-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 </nav>
 
 

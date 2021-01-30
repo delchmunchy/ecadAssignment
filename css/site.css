@@ -1,7 +1,6 @@
-
 body {
     font-family : Arial;
-    font-size : 14px;
+	font-size : 14px;
 }
 
 .page-title {
@@ -10,9 +9,62 @@ body {
 }
 
 .cart-header {
-	/*background-color: #0040FF;*/
-	background-color: #f70067;
+	background-color: #f7006740;
 	color: rgb(0, 0, 0);
 }
 
+.slick-slider img {
+	height:250px;
+	width:250px;
+	margin: auto;
+	margin-top: 25px;
+	margin-bottom: 25px;
 
+}
+
+.slick-slider p {
+	margin: auto;
+	
+}
+
+.carousel-text {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.carousel-text a{
+	color: red;
+}
+
+.carousel-text p {
+	font-weight: bold;
+	color: red;
+}
+
+.carousel-div {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+.slick-slider {
+	margin: auto;
+}
+
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before
+{
+	font-size: 20px;
+	line-height: 20px;
+	margin-top: 15px;
+	color: #f59acc;
+}
+
+.table, th, td {
+	border: 1px solid #cccccc;
+}
+
+
+ 
