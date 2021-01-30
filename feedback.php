@@ -30,7 +30,7 @@ $MainContent .= "<div style='width:80%; margin:auto;'>";
 $MainContent .= "<div>";
 
 $MainContent .= "<table class='table table-striped table-hover'>
-                    <tr>
+                    <tr style='background-color: #f59acc;'>
                         <th scope='col'>Name</th>
                         <th scope='col'>Subject</th>
                         <th scope='col'>Feedback</th>
@@ -105,6 +105,6 @@ if (isset($_POST['subject']) || isset($_POST['feedback']) || isset($_POST['ratin
     $MainContent .= "<a href='feedback.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
 }
 
-// $MainContent .= "</div>";
+$MainContent .= "</div>";
 include("MasterTemplate.php"); 
 ?>
