@@ -35,6 +35,9 @@ if(isset($_SESSION["ShopperName"])) {
     <ul class="navbar-nav mr-auto" style="align-items: center;">
 
         <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="category.php">Product Categories</a>
         </li>
         <li class="nav-item">
