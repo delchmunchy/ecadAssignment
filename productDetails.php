@@ -88,7 +88,7 @@ while ($row = $result->fetch_array())
 
     $MainContent .= "<br><br><button type='submit' disabled class='btn btn-primary' style='background-color:#f59acc; border-color:#f59acc; color:black;'>Add to Cart</button>";
     
-    $MainContent .= "<br><br><span style='font-weight: bold; color: red; font-size:20px'>Product is out of stock!☹</span>";
+    $MainContent .= "<br><br><span style='font-weight: bold; color: #eb34a8; font-size:20px'>Product is out of stock!☹</span>";
     }
 
     $MainContent .= "</div>"; //End of right column 
