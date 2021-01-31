@@ -28,8 +28,8 @@ $MainContent .= "</div>";
 $MainContent .= "<input type='checkbox' id='myCheck' name='myCheck' value='Yes'>";
 $MainContent .= "<label for='myCheck'>On Offer</label></br></br>";
 $MainContent .= "<div class='price-slider' style='margin: auto; text-align: center;'><span></br>Price Range:</br>";
-$MainContent .= "<input type='number' label for='num1' name='num1' placeholder='1' min='0' max='200' required/>     to  ";
-$MainContent .= "<input type='number' label for='num2' name='num2' placeholder='160' min='0' max='200' required/></span></br>";
+$MainContent .= "<input type='number' label for='num1' name='num1' placeholder='1' min='1' max='500' required/>     to  ";
+$MainContent .= "<input type='number' label for='num2' name='num2' placeholder='500' min='1' max='500' required/></span></br>";
 $MainContent .= "</div>";
 $MainContent .= "</div>";  // End of 2nd row
 
