@@ -72,7 +72,7 @@ if (isset($_POST['email'])) {
         $MainContent .= "</div>";
     }
     else {
-        $MainContent .= "<p><span style='color:red;'>Wrong E-mail address!</span>";
+        $MainContent = "<p style='color:red; text-align:center;'>Invalid E-mail address!</p>";
         $MainContent .= "<a href='forgetPassword.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
 
     }
