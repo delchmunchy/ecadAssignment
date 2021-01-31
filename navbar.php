@@ -28,37 +28,39 @@ if(isset($_SESSION["ShopperName"])) {
 
 <!-- To Do 4 (Practical 1) - 
      Define a collapsible navbar -->
-<nav class="navbar navbar-expand-md navbar-light">
+     <nav class="navbar navbar-expand-md navbar-light" style="margin:auto; padding-bottom:0px" >
+
+     <ul class="nav-item">
+            <a href="index.php">
+            <img src="Images/flowerlogo.png" alt="Logo" style="height:150px;"/></a>
+            <p style="text-align:center; margin-top:-15px; margin: auto 0px; font-size:25px; font-family: Lucida Handwriting
+                        ; font-weight: bold; color:#ff3399">Flamper</p>
+    </ul>
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-light" style="padding-left: 50px; padding-right: 50px; padding-top:0px; padding-bottom:0px" >
+
     <!--Collapsible part of navbar-->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <!--Left-justified menu items-->
-    <ul class="navbar-nav mr-auto" style="align-items: center;">
+    <ul class="navbar-nav" style="align-items: center; width:100%; font-weight: bold; font-family:
+                Lucida Handwriting; background-color: pink; height: 60px; justify-content: center; font-size: 15px; ">
 
         <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="index.php" style="margin-right: 30px;"><i class="fa fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="category.php">Product Categories</a>
+            <a class="nav-link" href="category.php" style="margin-right: 30px;"><i class="fa fa-money"></i> Product Categories</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="search.php">Product Search</a>
+            <a class="nav-link" href="search.php" style="margin-right: 30px;"><i class="fa fa-search"></i> Product Search</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="feedback.php">Feedback</a>
+            <a class="nav-link" href="feedback.php" style="margin-right: 30px;"><i class="fa fa-comments"></i> Feedback</a>
         </li>
         
-        <li class="nav-item" style="margin-left: 130px; margin-right: 130px;">
-            <a href="index.php">
-            <img src="Images/FloralLogo.png" alt="Logo" style="height:84px; width:150px;"/></a>
-            <p style="text-align:center; margin-top:-15px; font-family: cursive;">Flamper</p>
-        </li>
-
         <li class="nav-item">
-            <a class="nav-link" href="shoppingCart.php">Shopping Cart</a>
+            <a class="nav-link" href="shoppingCart.php"><i class="fa fa-shopping-cart"></i> Shopping Cart</a>
         </li>
-    </ul>
-    <!--Right-justified menu items-->
-    <ul class="navbar-nav ml-auto">
         <?php echo $content2; ?>
     </ul>
 </div>
@@ -67,11 +69,12 @@ if(isset($_SESSION["ShopperName"])) {
 <!-- To Do 3 (Practical 1) - 
      Display a navbar which is visible before or after collapsing -->
 
-     <nav class="navbar navbar-expand-md navbar-dark" style="height:200px; width:1100px;">
+     <nav class="navbar navbar-expand-md navbar-dark" style="height:200px;padding-left:50px; padding-right:50px; padding-top:0px; height:300px;">
     <!--Dynamic Text Display-->
-    <span class="navbar-text ml-md-2"
-            style="background:url(Images/FloralBanner.png) no-repeat; width: 150%; height: 100%; display:block">
-            <p style="color:#ff003bbd; font-size:35px; font-weight: bold; margin-left: 30px; margin-top:50px; font-family: monospace"><?php echo $content1; ?></p>
+    <span class="navbar-text"
+            style="background:url(Images/background.jpg) no-repeat; text-align:center; display:flex; flex-flow:column; margin:0px; height:100%; background-size: cover; width:100%;">
+            <p style="color:black; font-size:35px; font-weight: bold; margin: auto 0px; font-family: Lucida Console
+"><?php echo $content1; ?></p>
     </span>
 
     <!--Collapsible Button-->

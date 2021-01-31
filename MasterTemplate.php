@@ -6,6 +6,7 @@
 
 <title>Flamper</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 <script src="js/jquery.min.js"></script>
@@ -15,27 +16,21 @@
 <link rel="stylesheet" href="css/site.css">
 </head>
 
+<div class="d-flex flex-column">
 
-<div class="container">
-
-    <div class="row">
-        <?php include("navbar.php"); ?>
+    <?php include("navbar.php"); ?>
+    <br />
+    <br />
+    <div class="col-sm-12" style="margin-bottom: 50px; padding-left:50px; padding-right:50px;">
+        <?php echo $MainContent; ?>
     </div>
-
-    <div class="row">
-        <div class="col-sm-12" style="padding:15px; margin-bottom: 50px;">
-            <?php echo $MainContent; ?>
-        </div>
-    </div>
-
-        
-    <div class="row">
-        <div class="col-sm-12" style="text-align: right;">
-        <hr/>
-        Do you need help? Please email to:
-        <a style='color:#f244a3' href="mailto:flamper@flamper.com.sg">Flamper</a>
-        <p style="font-size:12px">&copy;Copyright by Flamper</p>
-        </div>
+    
+    <br />
+    <div class="col-sm-12" style="text-align: right; padding-left:50px; padding-right:50px;">
+    <hr/>
+    Do you need help? Please email to:
+    <a style='color:#f244a3' href="mailto:flamper@flamper.com.sg">Flamper</a>
+    <p style="font-size:12px">&copy;Copyright by Flamper</p>
     </div>
 
 </div>
