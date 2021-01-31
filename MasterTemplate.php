@@ -5,44 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Flamper</title>
-<script src="js/jquery.min.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+<script src="js/jquery.min.js"></script>
 <script src="js/slick.min.js">
+<script src="js/bootstrap.min.js"></script>
 <script src="js/checkbox.js"></script>
 <link rel="stylesheet" href="css/site.css">
-<style>
-.hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgb(255 255 255 / 50%), rgb(255 255 255 / 50%)),
-    url("./Images/background.jpg");
-
-  /* Set a specific height */
-  height: 300px;
-
-  z-index: -60;
-  /* Position and center the image to scale nicely on all screens */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-/* Place text in the middle of the image */
-.hero-text {
-  text-align: center;
-  z-index: -50;
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-}
-</style>
 </head>
 
 

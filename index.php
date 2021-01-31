@@ -2,34 +2,27 @@
 // Detect the current session
 session_start();
 
+// Create a container, 60% width of viewport
 
-$contentHero = "<div class='hero-image'>
-<div class='hero-text'>
-  <h1>Welcome Guest</h1>
-</div>
-</div>";
 
-if(isset($_SESSION["ShopperName"])) { 
-	
-    $contentHero =  "<div class='hero-image'>
-    <div class='hero-text'>
-      <h1>Welcome <b>$_SESSION[ShopperName]</b></h1>
-    </div>
-    </div>";
-}
-	
-if (isset($_SESSION["NumCartItem"]) && isset($_SESSION["ShopperName"])) {
-    $contentHero = "<div class='hero-image'>
-    <div class='hero-text'>
-    <h1>Welcome <b>$_SESSION[ShopperName]</b></h1>
-    <p>You have $_SESSION[NumCartItem] item(s) in your cart</p>
-    </div>
-    </div>";
-}
+$MainContent = "<div style='width:100%'>";
+/*
+// Display Page Header - 
+$MainContent .= "<p><a style='color:#f244a3'>Gifts for all ages.</a></p>";
+$MainContent .= "<span style='font-weight: bold; color: black; font-size: 25px;'>Products on Offer</span></br>";
 
-$MainContent = "<div style='text-align:center;'>";
+$MainContent = "<img src='Images/banner2.jpg'  
+                     style='display:block; margin:auto; width:100%; height: 9%;'/>";
 
-$MainContent = $contentHero;
+
+// Display Page Header - 
+$MainContent = "<img src='Images/banner2.jpg' style='display:block; margin:auto; width:100%; height: 20%;'/>";
+$MainContent .= "<div class='row' style='padding:5px'>";
+$MainContent .= "<div class='col-12'>";
+$MainContent .= "</div>";
+$MainContent .= "</div>";
+*/
+// Include the PHP file that establishes database connection handle: $conn
 include_once("mysql_conn.php"); 
 
 // To Do:  Starting ....
@@ -43,10 +36,9 @@ $stmt->close();
 
 $row = $result->fetch_array();
 
-$MainContent .= "<div class='pb-5 pt-5' style='text-align:center; background-color:pink;'>";
-$MainContent .= "<span style='font-weight: bold; color: black; font-size: 30px;'>Products on Offer</span></br>";
+$MainContent .= "<span style='font-weight: bold; color: black; font-size: 25px;'>Products on Offer</span></br>";
 $MainContent .= "<span style='color: black; font-size: 15px;'>These are the products that are currently on offer at discounted prices.</span>";
-$MainContent .= "</div>";
+
 
 $MainContent .= "<div class='slider' style='margin-top:25px;'></div>";
 
