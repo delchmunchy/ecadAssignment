@@ -25,10 +25,9 @@ $MainContent .= "<div class='col-sm-3'>";
 $MainContent .= "<button type='submit' class=' btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: black;'>Search</button>";
 $MainContent .= "</div>";
 
-$MainContent .= "<input type='checkbox' id='myCheck' name='myCheck' value='Yes'></br> ";
-$MainContent .= "<label for='myCheck'>On Offer</label><br>";
-
-$MainContent .= "<div class='price-slider'><span>Price Range:</br>";
+$MainContent .= "<input type='checkbox' id='myCheck' name='myCheck' value='Yes'>";
+$MainContent .= "<label for='myCheck'>On Offer</label></br></br>";
+$MainContent .= "<div class='price-slider' style='margin: auto; text-align: center;'><span></br>Price Range:</br>";
 $MainContent .= "<input type='number' label for='num1' name='num1' placeholder='1' min='0' max='200' required/>     to  ";
 $MainContent .= "<input type='number' label for='num2' name='num2' placeholder='160' min='0' max='200' required/></span></br>";
 $MainContent .= "</div>";
