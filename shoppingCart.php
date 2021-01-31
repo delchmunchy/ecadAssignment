@@ -132,6 +132,7 @@ if (isset($_SESSION["Cart"])) {
 		$MainContent .= "</table>";
 		$MainContent .= "</div>";
 				
+		
 		// Delivery options
 		$isNormalDelivery = "";
 		$isExpressDelivery = "";
@@ -148,12 +149,6 @@ if (isset($_SESSION["Cart"])) {
 						$isExpressDelivery . " onClick='window.location.href=\"shoppingCart.php?delivery=express\"'/>";  
 		$MainContent .= "Express Delivery - $10  delivery fee, deliver within 24 hours.";
 		
-		
-		//$MainContent .="<input type='submit' name='submit' value='Submit'>";
-		//$MainContent .= "<p id='display' style='text-align:Left'>Delivery fee is: </p>";
-		//$MainContent .= "<p id='normal' style='text-align:Left; display:none'>Delivery fee is: $5</p>";
-		//$MainContent .= "<p id='express' style='text-align:Left; display:none'>Delivery fee is: $10</p>";
-
 		// Update delivery cost and its display value
 		$deliveryCost = 0.0;
 		if (!isset($_GET['delivery'])) {
@@ -168,9 +163,17 @@ if (isset($_SESSION["Cart"])) {
 		// Waiving if subTotal of items only hits a certain amount
 		if ($deliveryCost > 0.0 && $subTotal >= 200.00) {
 			$deliveryCost = 0.0;
-			$deliveryCostString .= ' (waived)';
+			$deliveryCostString .= ' (Free Express Delivery!)';
 		}
 		$subTotal += $deliveryCost;
+		
+		
+		//$MainContent .="<input type='submit' name='submit' value='Submit'>";
+		//$MainContent .= "<p id='display' style='text-align:Left'>Delivery fee is: </p>";
+		//$MainContent .= "<p id='normal' style='text-align:Left; display:none'>Delivery fee is: $5</p>";
+		//$MainContent .= "<p id='express' style='text-align:Left; display:none'>Delivery fee is: $10</p>";
+
+		
 
 		// To Do 4 (Practical 4): 
 		// Display delivery cost
