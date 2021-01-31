@@ -51,6 +51,7 @@ while ($row = $result->fetch_array())
     $productTitle = "$row[ProductTitle]";
     $formattedPrice = number_format($row["OfferedPrice"], 2);
     $img = "./Images/products/$row[ProductImage]";
+    
 /*
     //67% of row width
     $MainContent .= "<div class='col-8'>"; 
@@ -71,14 +72,13 @@ while ($row = $result->fetch_array())
 */
     $MainContent .= "<script type='text/javascript'>
         $('<div class=carousel-div><img src=$img></img><div class=carousel-text><a href=$product>$productTitle</a></br>Price:<span class=carousel-text-b>S$ $formattedPrice</span></div></div>').appendTo('.slider');
-    </script>";
-
+    </script>";  
 }
 // To Do:  Ending ....
 
 
 $conn->close(); // Close database connnection
-$MainContent .= "</div>"; // End of container
+
 
 
 include("MasterTemplate.php"); 
