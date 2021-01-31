@@ -1,7 +1,7 @@
 ﻿<?php  
 session_start(); // Detect the current session
 // Create a container, 90% width of viewport
-$MainContent = "<div style='width:90%; margin:auto;'>";
+$MainContent = "<div class='p-5'>";
 
 $pid=$_GET["pid"]; // Read Product ID from query string
 

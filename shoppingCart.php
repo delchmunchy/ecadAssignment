@@ -10,7 +10,13 @@ if (! isset($_SESSION["ShopperID"])) {
 	exit;
 }
 
-$MainContent = "<div id='myShopCart' style='margin:auto'>";
+$MainContent = "<div class='hero-image'>
+<div class='hero-text'>
+<h1><b>Your Cart</b></h1>
+</div>
+</div>";
+
+$MainContent .= "<div class='p-5' id='myShopCart'>";
 
 if (isset($_SESSION["Cart"])) {
 	include_once("mysql_conn.php");
@@ -25,8 +31,7 @@ if (isset($_SESSION["Cart"])) {
 	
 	if ($result->num_rows > 0) {
 		// To Do 2 (Practical 4): Format and display 
-		// the page header and header row of shopping cart page
-		$MainContent .= "<p class='page-title' style='text-align:center'>Shopping Cart</p>"; 
+		// the page header and header row of shopping cart page 
 		$MainContent .= "<div class='table-responsive' >";
 		$MainContent .= "<table class='table table-hover'>";
 		$MainContent .= "<thead class='cart-header'>";
@@ -165,7 +170,8 @@ if (isset($_SESSION["Cart"])) {
 			$deliveryCost = 0.0;
 			$deliveryCostString .= ' (Free Express Delivery!)';
 		}
-		//$subTotal += $deliveryCost;
+		$isFreeDelivery = ($deliveryCost == 0.0) ? 'true' : 'false';
+		$MainContent .= "<input type='text' name='isFreeDelivery' value=" . $isFreeDelivery . "' style='display:none;'/>";  
 		
 		
 		//$MainContent .="<input type='submit' name='submit' value='Submit'>";
@@ -177,7 +183,7 @@ if (isset($_SESSION["Cart"])) {
 
 		// To Do 4 (Practical 4): 
 		// Display the subtotal at the end of the shopping cart
-		$MainContent .= "<p style='text-align:right; font-size:15px'> Subtotal: S$" . 
+		$MainContent .= "<p style='text-align:right; font-size:15px'>Subtotal (incl. Delivery): S$" . 
 					    number_format($subTotal, 2) . "</p>";
 		
 						// Display delivery cost

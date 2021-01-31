@@ -11,12 +11,12 @@ if($_POST) //Post Data received from Shopping cart page.
 	foreach($_SESSION['Items'] as $key=>$item) {
 		$qry = "SELECT Quantity FROM product WHERE ProductID=?";
 		$stmt = $conn->prepare($qry);
-		$stmt->bind_param("i",$_SESSION['Quantity']);
+		$stmt->bind_param("i",$item['productId']);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_array();
 		$stmt->close();
-		if(number_format(isset($row["Quantity"])) < number_format($item["Quantity"])){
+		if(number_format(isset($row["Quantity"])) < number_format($item["quantity"])){
 			$MainContent .= "Product $item[productId] : $item[name] is out of stock!<br />"; 
 			$MainContent .= "Please return to shopping cart to amend your purchase.<br />"; 
 			include("MasterTemplate.php"); 
@@ -73,6 +73,9 @@ if($_POST) //Post Data received from Shopping cart page.
 			$_SESSION["ShipCharge"] = $NormalDelivery;
 			$_SESSION["NormalDelivery"] = "Checked";
 			$_SESSION["ExpressDelivery"] = "";  
+	}
+	if (isset($_POST['isFreeDelivery']) && $_POST['isFreeDelivery']) {
+		$_SESSION["ShipCharge"] = 0.0;
 	}
 
 	/*

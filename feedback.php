@@ -12,6 +12,12 @@ $MainContent = "<div class='container'>";
     $MainContent .= "</div>";
 $MainContent .= "</div>";
 
+$MainContent = "<div class='hero-image'>
+<div class='hero-text'>
+<h1><b>Feedback</b></h1>
+</div>
+</div>";
+
 // GET SHOPPER NAME
 include_once("mysql_conn.php");
 $qry = "SELECT * FROM shopper AS s JOIN feedback AS f ON s.ShopperID = f.ShopperID";
