@@ -101,7 +101,7 @@ if (isset($_POST['subject']) || isset($_POST['feedback']) || isset($_POST['ratin
     $stmt->execute();
     $stmt->close();
     
-    $MainContent = "<p>Thank you for giving us feedback!</p><br />";
+    $MainContent = "<p style='text-align:center;'>Thank you for giving us feedback!</p><br />";
     $MainContent .= "<a href='feedback.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
 }
 

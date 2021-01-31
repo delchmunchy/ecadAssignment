@@ -92,7 +92,7 @@ if (isset($_POST["pwdAns"])) {
         $stmt->execute();
         $stmt->close();
 
-        $MainContent = "<p>Your new temporary password is <b>tempPassword</b>.<br/> 
+        $MainContent = "<p style='text-align:center;'>Your new temporary password is <b>tempPassword</b>.<br/> 
         Please use this password to log in and then change it to a new one for security reasons.<p/>";
         $MainContent .= "<a href='forgetPassword.php' class='btn btn-primary' style='background-color: #f59acc; border-color:#f59acc; color: rgba(0,0,0,.5);'>Go back</a></br></br>";
     } else {
