@@ -53,13 +53,13 @@ if($_POST) //Post Data received from Shopping cart page.
 	$NormalDelivery = 5.00;
 	$ExpressDelivery = 10.00;
 	
-	if (isset($_POST["Delivery"])){
+	if (isset($_POST["delivery"])){
 		//$_POST["Delivery"] = $_SESSION["Delivery"];
-		if($_POST["Delivery"] === '5.00'){
+		if($_POST["delivery"] === '5.00'){
 			$_SESSION["ShipCharge"] = $NormalDelivery;
 			$_SESSION["NormalDelivery"] = "Checked";
 			$_SESSION["ExpressDelivery"] = "";
-		}else if ($_POST["Delivery"] === '10.00'){
+		}else if ($_POST["delivery"] === '10.00'){
 			$_SESSION["ShipCharge"] = $ExpressDelivery;
 			$_SESSION["NormalDelivery"] = "";
 			$_SESSION["ExpressDelivery"] = "Checked";

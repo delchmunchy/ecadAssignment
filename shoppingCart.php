@@ -165,7 +165,7 @@ if (isset($_SESSION["Cart"])) {
 			$deliveryCost = 0.0;
 			$deliveryCostString .= ' (Free Express Delivery!)';
 		}
-		$subTotal += $deliveryCost;
+		//$subTotal += $deliveryCost;
 		
 		
 		//$MainContent .="<input type='submit' name='submit' value='Submit'>";
@@ -176,13 +176,13 @@ if (isset($_SESSION["Cart"])) {
 		
 
 		// To Do 4 (Practical 4): 
-		// Display delivery cost
+		// Display the subtotal at the end of the shopping cart
+		$MainContent .= "<p style='text-align:right; font-size:15px'> Subtotal: S$" . 
+					    number_format($subTotal, 2) . "</p>";
+		
+						// Display delivery cost
 		$MainContent .= "<p style='text-align:right; font-size:15px'> Delivery Cost: " . 
 						$deliveryCostString . "</p>";
-		
-		// Display the subtotal at the end of the shopping cart
-		$MainContent .= "<p style='text-align:right; font-size:15px'>Subtotal (incl. Delivery): S$" . 
-					    number_format($subTotal, 2) . "</p>";
 		
 		$MainContent .= "<p style='text-align:right; font-size:15px'> Total Item(s): " . 
 						number_format($totalItem) . "</p>";
