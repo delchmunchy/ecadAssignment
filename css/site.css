@@ -66,8 +66,9 @@ body {
 	border: 1px solid #cccccc;
 }
 
-.navbar-nav:hover {
-	color:pink;
-}
+.slick-prev:before,
+.slick-next:before
+{
+    color: black;
 
- 
+}

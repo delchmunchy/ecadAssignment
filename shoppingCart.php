@@ -88,6 +88,7 @@ if (isset($_SESSION["Cart"])) {
 				$maxQty = $qtyQueryRow['Quantity'];
 			}
 			// Textbox with +/- capabilities for quantity (restricted between 1 and quantity available)
+			
 			$MainContent .= "<input name='quantity' id='sc_quantity_". $row['ProductID']. "' " .
 							"value='" . $row['Quantity'] . "' " .
 							"onChange='this.value= (Math.max(1, Math.min( " . $maxQty. 
@@ -101,12 +102,12 @@ if (isset($_SESSION["Cart"])) {
 			$MainContent .= "<input type='hidden' name='action' value='update' />";
 			$MainContent .= "<input type='hidden' name='product_id' value='$row[ProductID]' />";
 			$MainContent .= "</form>";
-
+			
 			// Price for this product
 			$MainContent .= "</td>";
 			$formattedTotal = number_format($row["Total"], 2) ;
 			$MainContent .= "<td>$formattedTotal</td>";
-
+			
 			// Remove Item
 			$MainContent .= "<td>";
 			$MainContent .= "<form action='cartFunctions.php' method='post'>";
@@ -192,13 +193,17 @@ if (isset($_SESSION["Cart"])) {
 		$MainContent .= "<br/><br/>";
 		$MainContent .= "<input src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' type='image' style='float:right' />";
 		$MainContent .= "</form></p>";		
-	} else {
+	} 
 		
+	
+	else {
+		$MainContent .= "<h3 style='text-align:center; color:blue;'>Your Shopping Cart is Empty!</h3>";
+		$MainContent .= "<p style='text-align: center; color:blue; padding-top:50px;'><a href='category.php'>Continue Shopping</a></p>";
+
 	}
 	$conn->close(); // Close database connection
-} else {
-	$MainContent .= "<h3 style='text-align:center; color:red;'>Empty shopping cart!</h3>";
 }
+
 $MainContent .= "</div>";
 include("MasterTemplate.php");	
 ?>

@@ -69,11 +69,11 @@ if(isset($_SESSION["ShopperName"])) {
 <!-- To Do 3 (Practical 1) - 
      Display a navbar which is visible before or after collapsing -->
 
-     <nav class="navbar navbar-expand-md navbar-dark" style="height:200px;padding-left:50px; padding-right:50px; padding-top:0px; height:300px;">
+     <nav class="navbar navbar-expand-md navbar-dark" style="height:200px;padding-left:50px; padding-right:50px; padding-top:0px; height:200px;">
     <!--Dynamic Text Display-->
     <span class="navbar-text"
-            style="background:url(Images/background.jpg) no-repeat; text-align:center; display:flex; flex-flow:column; margin:0px; height:100%; background-size: cover; width:100%;">
-            <p style="color:black; font-size:35px; font-weight: bold; margin: auto 0px; font-family: Lucida Console
+            style="background:url(Images/background.jpg) no-repeat; text-align:center; display:flex; flex-flow:column; margin:0px; height:70%; background-size: cover; width:100%; height:100% ">
+            <p style="color:black; font-size:20px; font-weight: bold; margin: auto 0px; font-family: Lucida Console
 "><?php echo $content1; ?></p>
     </span>
 

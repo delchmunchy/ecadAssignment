@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/site.css">
 </head>
 
+
 <div class="d-flex flex-column">
 
     <?php include("navbar.php"); ?>
@@ -40,6 +41,11 @@
             slidesToShow: 3,
             dots: true,
             autoplay: true,
-            autoplaySpeed:3000
+            autoplaySpeed:3000,
         })
+
+
+
 </script>
+
+
